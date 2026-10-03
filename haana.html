@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        h1 {
+            font-family: Verdana, sans-serif;
+        }
+
+        .windows {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+            padding: 0 16px;
+        }
+
+        .top-windows {
+            display: grid;
+            grid-template-columns: minmax(140px, 1fr) minmax(0, 2fr) minmax(140px, 1fr);
+            align-items: center;
+            width: 100%;
+            gap: 16px;
+        }
+
+        .button-panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+        }
+
+        .button-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ang {
+            background-color: rgb(139, 57, 12);
+            color: white;
+            font-family: "8-bit Operator Plus", monospace;
+            box-shadow: 4px 4px 0 black;
+            width: 121px;
+            height: 34px;
+            border: none;
+        }
+
+        .eng {
+            background-color: #FFA500;
+            color: white;
+            font-family: "8-bit Operator Plus", monospace;
+            box-shadow: 4px 4px 0 black;
+            width: 121px;
+            height: 34px;
+            border: none;
+        }
+
+        .ing {
+            background-color: rgb(170, 218, 58);
+            color: white;
+            font-family: "8-bit Operator Plus", monospace;
+            box-shadow: 4px 4px 0 black;
+            width: 121px;
+            height: 34px;
+            border: none;
+        }
+
+        .extra-button-panel {
+            display: flex;
+            justify-content: center;
+            align-self: start;
+            padding-top: 32px;
+        }
+
+        .extra-button {
+            width: 150px;
+            min-height: 42px;
+            border: 2px solid black;
+            background-color: red;
+            color: white;
+            font-family: "8-bit Operator Plus", monospace;
+            box-shadow: 4px 4px 0 black;
+        }
+
+        .first-window {
+            width: 100%;
+            flex: none;
+            margin: 0;
+        }
+
+        .bottom-windows {
+            display: flex;
+            width: 100%;
+            gap: 16px;
+        }
+
+        .bottom-windows.single-window {
+            justify-content: center;
+        }
+
+        .bottom-windows.single-window .bottom-window {
+            flex: 0 1 50%;
+        }
+
+        .bottom-windows.final-window {
+            justify-content: flex-start;
+        }
+
+        .bottom-window {
+            flex: 1;
+        }
+
+        .parentalguidance {
+            position: relative;
+            flex: 1;
+            width: auto;
+            height: 50vh;
+            margin: 50px 0;
+            background-color: gray;
+            border: solid 3px black;
+            box-sizing: border-box;
+            min-width: 0;
+        }
+
+        .parentalguidance.first-window {
+            width: 100%;
+            flex: none;
+            margin: 0;
+            height: 50vh;
+            min-height: 360px;
+        }
+
+        .blue {
+            background-color: blue;
+            width: 100%;
+            height: 35px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .green {
+            background-color: green;
+        }
+        .yellow {
+            background-color: #c49a00;
+        }
+        .warm-yellow {
+            background-color: #F5B46B;
+        }
+        .red {
+            background-color: red;
+        }
+        .one{
+            font-family: "Press Start 2P", monospace;
+            color: white;
+        }
+        .two{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .bluebottle-image {
+            display: block;
+            width: 280px;
+            height: auto;
+            object-fit: cover;
+            position: absolute;
+            top: 35px;
+            left: 0;
+            margin: 0;
+        }
+        .three{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 16px;
+            padding-top: 35px;
+            box-sizing: border-box;
+        }
+        .three p{
+            margin-top: 0;
+        }
+        .details p{
+            margin: 0 0 8px;
+        }
+        .three > div{
+            width: 50%;
+            flex-shrink: 0;
+        }
+        .three > .details{
+            width: auto;
+            flex-shrink: 1;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 1.5rem;
+                margin: 12px 0;
+            }
+
+            .windows {
+                padding: 0 12px 24px;
+            }
+
+            .top-windows,
+            .bottom-windows {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .top-windows {
+                display: flex;
+                align-items: stretch;
+                gap: 16px;
+            }
+
+            .button-panel {
+                width: 100%;
+                min-height: 140px;
+            }
+
+            .button-menu {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .ang,
+            .eng,
+            .ing {
+                width: 100%;
+                height: 42px;
+                font-size: 0.75rem;
+            }
+
+            .first-window,
+            .parentalguidance,
+            .parentalguidance.first-window {
+                width: 100%;
+                min-width: 0;
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .parentalguidance {
+                height: auto;
+                min-height: 220px;
+            }
+
+            .extra-button-panel {
+                justify-content: center;
+                padding-top: 0;
+            }
+
+            .bottom-windows.single-window,
+            .bottom-windows.final-window {
+                align-items: stretch;
+            }
+
+            .bottom-windows.single-window .bottom-window {
+                flex-basis: auto;
+            }
+
+            .three {
+                flex-direction: column;
+                gap: 12px;
+                padding-top: 50px;
+            }
+
+            .three > div,
+            .three > .details {
+                width: 100%;
+            }
+
+            .bluebottle-image {
+                position: static;
+                width: 100%;
+                max-width: 220px;
+                margin: 50px auto 0;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>FLIES OF THE HOUSE</h1>
+    <div class="windows">
+        <div class="top-windows">
+            <div class="button-panel">
+                <div class="button-menu">
+                    <a href="index.html" target="_blank"><button class="ang" onclick="applyTheme(this, '#734F96')">Go back to bio database</button></a>
+                    <a href="KRu 700.html" target="_blank"><button class="ing" onclick="applyTheme(this, 'lightskyblue')">Blood Sucking Flies</button></a>
+                    <button class="eng" onclick="toggleHackerTheme(this)">"hacker efficiency"</button>
+                </div>
+            </div>
+            <div class="parentalguidance first-window">
+        <header class="blue"><p class="one">greenbottle fly</p></header><div class="three"><div><img class="two"src="
+            https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7jMe6esGCo6syg6bPAvtra
+            o7TIjJ7
+            2ISZyvXeHP6B
+            rrfLygtVUDU4tp-6LsOVWSglRgL
+            7q3O0RwmpS3K2IwcLeVkZn0zuhLULmK6RWi2H&s=10"></div><div class="details"><p>rarity: common</p><p>habitat: worldwide pest</p>
+            <p>what they like: decaying organic matter. You've also probably have 
+                seen them buzzing around trash or poop
+            </p><p>
+                life cycle: real quick. 10 to 25 days. that is approximately 20 life cycles in a year. spoiler:  they can lay up to 1200 eggs in their lifetime.
+            </p></div></div>
+            </div>
+            <div class="extra-button-panel">
+                <button class="extra-button" onclick="applyTheme(this, 'blue')">alternate background</button>
+            </div>
+        </div>
+        <div class="bottom-windows single-window">
+            <div class="parentalguidance bottom-window">
+                <header class="blue green"><p class="one">bluebottle fly</p></header>
+                <img class="bluebottle-image" src="https://cdn.britannica.com/21/6721-050-49AA5FC5/Bluebottle-fly.jpg" alt="Bluebottle fly">
+            <p>despite the beautiful appearance as in the image, they have a nasty scientific 
+                name: Calliphora vomitoria which matches their grotesque behavior
+            </p>
+            </div>
+        </div>
+        <div class="bottom-windows">
+            <div class="parentalguidance bottom-window">
+                <header class="blue yellow"><p class="one">right window</p></header>
+            </div>
+            <div class="parentalguidance bottom-window">
+                <header class="blue red"><p class="one">window 5</p></header>
+                <img class="bluebottle-image" src="https://cdn.britannica.com/21/6721-050-49AA5FC5/Bluebottle-fly.jpg" alt="Bluebottle fly">
+            </div>
+        </div>
+        <div class="bottom-windows single-window final-window">
+            <div class="parentalguidance bottom-window">
+                <header class="blue warm-yellow"><p class="one">right window</p></header>
+            </div>
+        </div>
+    </div>
+    <script>
+        function applyTheme(button, color) {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+            if (color) {
+                button.style.backgroundColor = color;
+            }
+        }
+
+        function toggleHackerTheme(button) {
+            if (button.dataset.nightMode === "true") {
+                document.body.style.backgroundColor = "white";
+                document.body.style.color = "black";
+                document.querySelector(".ang").style.backgroundColor = "rgb(139, 57, 12)";
+                document.querySelector(".ing").style.backgroundColor = "rgb(170, 218, 58)";
+                document.querySelectorAll(".blue").forEach(function (header) {
+                    header.style.backgroundColor = header.classList.contains("red")
+                        ? "red"
+                        : header.classList.contains("green")
+                            ? "green"
+                            : header.classList.contains("warm-yellow")
+                                ? "#F5B46B"
+                                : header.classList.contains("yellow")
+                                    ? "#c49a00"
+                                    : "blue";
+                });
+                button.textContent = '"hacker efficiency"';
+                button.dataset.nightMode = "false";
+                return;
+            }
+
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+            document.querySelector(".ang").style.backgroundColor = "#734F96";
+            document.querySelector(".ing").style.backgroundColor = "lightskyblue";
+            document.querySelectorAll(".blue").forEach(function (header) {
+                header.style.backgroundColor = "#0F766E";
+            });
+            button.textContent = "kumekucha";
+            button.dataset.nightMode = "true";
+        }
+    </script>
+</body>
+
+</html>
